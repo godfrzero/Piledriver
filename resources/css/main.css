@@ -1,0 +1,491 @@
+@charset "utf-8";
+/* CSS Document */	
+@import url("reset.css");
+@import url("datepicker.css");
+
+div.ui-datepicker{
+ font-size:10px;
+}
+
+body {
+	background: #145;
+}
+
+header {
+	height: 40px;
+	width: 100%;
+	background: #256;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 -5px 10px rgba(0, 175, 175, 0.5);
+	padding: 5px 0;
+	color: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px 5px #000;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.rAlign {
+	position: relative;
+	float: right; 
+	margin-right: 50px;
+}
+
+.lAlign {
+	position: relative;
+	float: left; 
+	margin-left: 90px;
+}
+
+.hBlock {
+	padding: 8px 25px;
+	cursor: pointer;
+	position: relative;
+	height: 20px;
+	line-height: 20px;
+}
+
+#admName {
+	padding-right: 20px;
+	margin-right: 20px;
+	border-right: solid thin rgba(0, 0, 0, 0.3);
+}
+
+#mAction:hover {
+	color: #FFF;
+}
+
+.cPanel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 260px;
+	background: #FFF;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+	z-index: 9;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.topClear {
+	height: 70px;
+}
+
+.cPanel ul li {
+	border-bottom: solid thin rgba(0, 0, 0, 0.2);
+	border-top: solid thin rgba(200, 200, 200, 0.1);
+	height: 40px;
+	line-height: 40px;
+	padding: 0 25px;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	cursor: pointer;
+	color: #555;
+	text-shadow: 0 1px 0 #FFF;
+}
+
+.cPanel ul li:hover, .cPanel li.currentPage {
+	background: #225566; /* Old browsers */
+	background: -moz-linear-gradient(top,  #225566 0%, #127d86 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#225566), color-stop(100%,#127d86)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #225566 0%,#127d86 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #225566 0%,#127d86 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #225566 0%,#127d86 100%); /* IE10+ */
+	background: linear-gradient(top,  #225566 0%,#127d86 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#225566', endColorstr='#127d86',GradientType=0 ); /* IE6-9 */
+	color: #FFF;
+	text-shadow: 0 1px 0 #000;
+}
+
+.cPanel ul li a {
+	position: relative;	
+}
+
+.cPanel ul li.currentPage > a {
+	left: 7px;
+}
+
+.body {
+    min-width: 950px;
+    position: absolute;
+    top: 0;
+    left: 280px;
+    margin-top: 70px;
+}
+
+.notifier {
+    margin: 10px 2%;
+    width: 94%;
+    position: relative;
+    background: rgba(155, 255, 155, 0.8);
+    border: solid 1px rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    box-shadow: inset 1px 1px 1px #FFF, inset 0 0 1px rgba(0, 0, 0, 0.3), 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.notifier .notification {
+    margin: 8px;
+    padding: 10px 20px;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: solid thin rgba(0, 0, 0, 0.3);
+    line-height: 20px;
+    background: #ccffcc; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ccffcc 0%, #99dd99 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ccffcc), color-stop(100%,#99dd99)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ccffcc 0%,#99dd99 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ccffcc 0%,#99dd99 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ccffcc 0%,#99dd99 100%); /* IE10+ */
+    background: linear-gradient(top,  #ccffcc 0%,#99dd99 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffcc', endColorstr='#99dd99',GradientType=0 ); /* IE6-9 */
+	cursor: pointer;
+}
+
+.notifier .notification:hover {
+	color: #000;
+}
+
+.notifier .closeNotification {
+	position: relative;
+	float: right;
+	width: 30px;
+	text-align: center;
+}
+
+.bar {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    border: solid 1px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    box-shadow: inset 1px 1px 1px #FFF, inset -1px -1px 1px rgba(0, 0, 0, 0.3), 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.One {
+    float: left;
+    width: 98%;
+    margin: 10px 0.5%;
+}
+
+.Two {
+    float: left;
+    width: 48%;
+    margin: 10px 0.75%;
+}
+
+.barHeader {
+	height: 30px;
+	border: solid thin rgba(0, 0, 0, 0.3);
+	margin: 8px;
+	margin-bottom: 0;
+	padding: 5px 15px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #333;
+	text-shadow: 1px 1px 0 #FFF;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #c5c5c5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#c5c5c5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#c5c5c5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#c5c5c5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#c5c5c5 100%); /* IE10+ */
+	background: linear-gradient(top,  #ffffff 0%,#c5c5c5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c5c5c5',GradientType=0 ); /* IE6-9 */
+	cursor: pointer;
+}
+
+.minState {
+	position: relative;
+	float: right;	
+	font-size: 16px;
+}
+
+.barContents {
+    margin: 8px;
+    margin-top: 0;
+    background: #69A;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #FFF;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+}
+
+.barContents table {
+	width: 100%;
+    padding: 10px;
+}
+
+.Two .barContents table tr td {
+	text-align: right;
+	height: 20px;
+	padding: 5px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.Two .barContents table tr:nth-child(even) td {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.barContents table tr:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.Two .barContents table tr td:first-child {
+	text-align: left;
+	text-overflow: ellipsis; 
+	-o-text-overflow: ellipsis; 
+	-icab-text-overflow: ellipsis; 
+	-khtml-text-overflow: ellipsis; 
+	-moz-text-overflow: ellipsis; 
+	-webkit-text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 260px;
+	min-width: 250px;
+	overflow: hidden;
+}
+
+.Two .barContents table tr td:last-child {
+	text-align: right;
+	max-width: 140px;
+	min-width: 95px;
+}
+
+.One .barContents table tr th {
+	height: 20px;
+	padding: 5px;
+	line-height: 20px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.One .barContents table tr td {
+	text-align: right;
+	height: 20px;
+	padding: 5px;
+	line-height: 20px;
+}
+
+.One .barContents table tr:nth-child(even) td {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.One .barContents table tr {
+	height: 20px;
+	padding: 5px;
+}
+
+.One .barContents table tr td:first-child {
+	text-align: left;
+	text-overflow: ellipsis; 
+	-o-text-overflow: ellipsis; 
+	-icab-text-overflow: ellipsis; 
+	-khtml-text-overflow: ellipsis; 
+	-moz-text-overflow: ellipsis; 
+	-webkit-text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 400px;
+	height: 20px;
+	line-height: 30px;
+	padding-left: 5px;
+}
+
+.One .barContents table tr td:last-child {
+	text-align: center;
+	max-width: 130px;
+	min-width: 95px;
+}
+
+/* Progress Bar Styles */
+
+	.Progress {
+	    background: rgba(255, 255, 255, 0.4);
+	    box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.7), inset -1px -1px 1px rgba(0, 0, 0, 0.5);
+	    border-radius: 5px;
+	    height: 16px;
+	    padding: 2px;
+	    width: 100%;
+		position: relative;
+		top: 5px;
+	}
+
+	.Progress .Fill {
+	    background: rgba(0, 0, 0, 0.2);
+	    height: 16px;
+	    position: relative;
+	    float: right;
+	    box-shadow: inset 0 0 10px black;
+	    border-radius: 4px;
+	}
+
+	.Progress .Label {
+		text-align: right;
+		padding-right: 1%;
+		line-height: 16px;
+		position: relative;
+		height: 16px;
+		float: left;
+		overflow: hidden;	
+	}
+
+	.barContents form {
+	    padding: 20px 10px;
+	}
+
+	.barContents form input[type="text"], .barContents form textarea  {
+	    border: solid thin rgba(0, 0, 0, 0.2);
+	    border-radius: 5px;
+	    height: 25px;
+	    margin: 10px 0;
+	    padding: 0 10px;
+	    line-height: 25px;
+	    background: rgba(0, 0, 0, 0.1);
+	    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), inset -1px -1px 2px rgba(255, 255, 255, 0.5);
+	    color: #FFF;
+	}
+
+	.barContents form textarea  {
+	    height: 100px;
+		resize: none;
+	}
+
+/* MultiSlider Styles */
+
+	.progress {
+		width: 98%;
+	}
+
+	.prog_header {
+		padding: 10px 0;
+		height: 25px;
+		width: 100%;	
+	}
+
+	.prog_header .label, .prog_header .value {
+		width: 70%;
+		padding: 0;
+		float: left;
+		position: relative;
+		font-family: Verdana, Geneva, sans-serif;
+		font-size: 20px;
+		/*color: #555;*/
+	}
+
+	.prog_header .label {
+		font-size: 14px;
+		line-height: 25px;	
+	}
+
+	.prog_header .value {
+		text-align: right;
+		width: 30%;
+	}
+
+	.progBar {
+		height: 20px;
+		width: 100%;
+		position: relative;
+	}
+
+	.progTab {
+		height: 100%;
+		width: 6px;
+		cursor: e-resize;
+		position: absolute;
+		top: 3px;
+		left: 25%;
+		border-radius: 20px;
+		text-align: center;
+		line-height: 20px;
+		font-family: Arial, Geneva, sans-serif;
+		font-size: 8px;
+		background: #FFF;
+		color: #999;
+		border: solid thin #DDD;
+		box-shadow: inset 0 -5px 10px rgba(0, 0, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.4);
+	}
+
+	.pb_container {
+		height: 14px;
+		width: 100%;
+		position: absolute;
+		top: 7px;
+		background: #FFF;
+		-moz-box-shadow: inset 3px 4px 7px #CCC;
+		box-shadow: inset 3px 4px 7px #CCC;
+		-moz-border-radius: 7px;
+		border-radius: 7px;
+		border: solid thin #BBB;
+		margin: 0 5px;
+	}
+
+	.pb_fill {
+		height: 10px;
+		width: 25%;
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		background: rgba(9, 163, 215, 0.2);
+		box-shadow: inset 3px -4px 7px rgba(0, 0, 0, 0.2);
+		border-top: solid thin rgba(255, 255, 255, 0.2);
+		border-bottom: solid thin rgba(0, 0, 0, 0.4);
+		border-top-left-radius: 21px;
+		border-bottom-left-radius: 21px;
+	}
+
+	.incButton, .dcrButton {
+    position: relative;
+    float: left;
+    height: 20px;
+    width: 30px;
+    line-height: 20px;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-weight: bold;
+		cursor: pointer;
+	}
+
+	.incButton:hover, .dcrButton:hover {
+		color: white;
+	}
+
+	.incButton {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: solid thin rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 1px 1px 3px white;
+	}
+
+	.dcrButton {
+    box-shadow: inset -1px 1px 3px white;   
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+	}
+
+	.progress .controls {
+    position: relative;
+    float: right;
+		top: 4px;
+	}
