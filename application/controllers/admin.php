@@ -41,7 +41,6 @@
 			if(!$validSession) {
 				redirect('/home/logout');
 			}
-
 		}
 
 		public function index() {

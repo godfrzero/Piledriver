@@ -1,30 +1,33 @@
 // JavaScript Document
-var thisElement;
-var eleHeights = new Array();
 
-function animateBars(item_ID, feedBack, speed) {
-	if(!speed) {
-		speed = 300;
-	}
+// Array used when collapsing/expanding BARs, stores the object reference and height
+var eleHeights = [];
 
-	if($('#'+item_ID).height()) {
-		eleHeights.push(new Array(item_ID, $('#'+item_ID).height()));
-		$('#'+item_ID).queue('fx',[]).animate({height: 0}, speed);
-		$('#'+feedBack).html('+');
+
+function animateBars(item, speed) {
+	var contentObject = item.parentNode.children[1];
+	var indicator = item.children[0];
+
+	if($(contentObject).height()) {
+		eleHeights.push([contentObject, $(contentObject).height()]);
+		$(contentObject).queue('fx', []).animate({height: 0}, speed);
+		$(indicator).html('+');
 	} else {
-		var oldHeight;
-		for(oldHeight = 0, i = 0; i < eleHeights.length; i++)
-			if(eleHeights[i][0] == item_ID) {
-				oldHeight = eleHeights[i][1];
+		var oldHeight = 0;
+		for(thisElement in eleHeights) {
+			element = eleHeights[thisElement];
+			if(element[0] == contentObject) {
+				oldHeight = element[1];
 			}
+		}
+
 		if(oldHeight) {
-			$('#'+item_ID).queue('fx',[]).animate({height: oldHeight}, speed);
-			$('#'+feedBack).html('-');
-		} else {
-			return null;	
+			$(contentObject).queue('fx', []).animate({height: oldHeight + 'px'}, speed);
+			$(indicator).html('-');
 		}
 	}
 }
+
 function manageNotifications(item_ID) {
 	THIS = document.getElementById(item_ID);
 	var totalElements = THIS.parentNode.children;
@@ -40,6 +43,7 @@ function manageNotifications(item_ID) {
 		}
 	}
 }
+
 $(document).ready(function () {
 
 	// Animate the menu items on mouseenter and mouseleave
@@ -59,21 +63,20 @@ $(document).ready(function () {
 		// jQuerys slideToggle hides the element after animation, which messes up our layout
 		// SO, we're using a custom function ^_^
 		// It needs an array, but w.e. it works. :P
-		animateBars(this.parentNode.children[1].id, this.children[0].id);
+		//animateBars(this.parentNode.children[1].id, this.children[0].id);
+		animateBars(this);
 	});
 
 	$(".barHeader.collapsed").each(function(){
-		animateBars(this.parentNode.children[1].id, this.children[0].id, 0.01);
+		animateBars(this.parentNode.children[1].id, this.children[0].id, 0);
 	});
 
 	$(".notification .closeNotification").click(function(){manageNotifications(this.parentNode.id);});
 	
-	//$("#pt_1").draggable({ axis: "x", containment: ".progBar", drag: function(){ $("#pf_1").width($("#pt_1").position().left + 1);}});	
 	$(".progTab").draggable({ axis: "x", containment: ".progBar", drag: function(){
 		var TabIndex = this.id.split('_')[1];
 		$("#pf_"+TabIndex).width($("#pt_"+TabIndex).position().left + 1);}
 	});	
 	
 	$(".dateInput").datepicker();
-	//$("#pt_3").draggable({ axis: "x", containment: ".progBar", drag: function(){ $("#pf_1").width($("#pt_1").position().left + 1);}});	
 });
