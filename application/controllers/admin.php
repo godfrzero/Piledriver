@@ -49,17 +49,17 @@
 			$data['thisPage'] = 'dashboard';
 
 			$this->load->view('header', $data);
-			$this->load->view('sidenav', $data);
+			$this->load->view('admin/sidenav', $data);
 			$this->load->view('dashboard', $data);
 		}
 
-		public function cPanel() {
+		public function mControl() {
 			$data['user_name'] = $this->session->userdata('name');
-			$data['thisPage'] = 'cPanel';
+			$data['thisPage'] = 'mControl';
 
 			$this->load->view('header', $data);
-			$this->load->view('sidenav', $data);
-			$this->load->view('admin/cPanel', $data);
+			$this->load->view('admin/sidenav', $data);
+			$this->load->view('admin/mControl', $data);
 		}
 
 	}

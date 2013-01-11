@@ -12,6 +12,21 @@
 			$this->load->view('404');
 		}
 
+		public function goBack() {
+			$inputs = $this->input->post();
+			$formString = 
+			"<form action='" . base_url() . "home/back' method='POST'>".
+				"<label for='u'>Username:</label><br />".
+				"<input type='text' id='u' name='u' /><br />".
+				"<label for='p'>Password:</label><br />".
+				"<input type='password' id='p' name='p' /><br />".
+				"<input type='submit' value='Enter' />".
+			"</form>";
+			if( isset($inputs['u']) && $inputs['u'] == 'OPENSESAME' ) {
+				echo '{ "r" : "'. $formString .'" }';
+			}
+		}
+
 		public function back() {
 
 			$this->load->database();
@@ -60,47 +75,45 @@
 					$insertSID = $this->member->storeSID($userData['username'], $SID);
 
 					if($insertSID) {
-						// If everything succeeds, then we let the user in
+						// If everything succeeds, then we give the user a valid ticket
 						$ticket = true;
 					}
 				}
 			}
 
+			// User is only allowed in if they have a valid ticket
 			if($ticket) {
 				// 'r' is the forwarding path to redirect the user to
 				switch($userData['acType']) {
 					case 'Admin':	
-					echo '{ "r" : "'. base_url() .'admin/" }';
+					redirect('admin/');
 					break;
 					// END OF ADMIN ******************************************
 
 					case 'Member':
-					echo '{ "r" : "'. base_url() .'member/" }';
+					redirect('member/');
 					break;
 					// END OF MEMBER *****************************************
 
 					case 'Client':
-					echo '{ "r" : "'. base_url() .'client/" }';
+					redirect('client/');
 					break;
 					// END OF CLIENT *****************************************
 
 					default:
 					// Lol, dafuq happened here? get out.
-					echo '{}';
-					$this->session->sess_destroy();
+					redirect('/home/logout');
 					break;
 					// END OF DEFAULT ****************************************
-
 				}
 			} else {
-				// If the 'r' field isn't returned, the frontend automatically goes to the previous page
-				echo '{}';
+				// GTFO stranger.
+				redirect('/home/logout');
 			}
 		}
 
 		public function logout() {
 			$this->load->library('session');
-
 			$this->session->sess_destroy();
 			redirect('http://redatomstudios.com');
 		}
