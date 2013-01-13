@@ -3,11 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Home :: RAPTR</title>
-<link href="<?= base_url() ?>resources/css/main.css" rel="stylesheet" type="text/css" />
-<script type='text/javascript' src="<?= base_url() ?>resources/js/jquery.js"></script>
-<script type="text/javascript" src="<?= base_url() ?>resources/js/drag.js"></script>
-<script type="text/javascript" src="<?= base_url() ?>resources/js/datepicker.js"></script>
-<script type='text/javascript' src="<?= base_url() ?>resources/js/h2o.js"></script>
+<!-- <link href="<?= base_url() ?>resources/css/main.css" rel="stylesheet" type="text/css" /> -->
+<!-- <script type='text/javascript' src="<?= base_url() ?>resources/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="<?= base_url() ?>resources/js/drag.js"></script> -->
+<!-- <script type="text/javascript" src="<?= base_url() ?>resources/js/datepicker.js"></script> -->
+<!-- <script type='text/javascript' src="<?= base_url() ?>resources/js/h2o.js"></script> -->
+<?php require '/resources/scripts.php'; ?>
 </head>
 
 <body>
