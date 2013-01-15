@@ -118,5 +118,24 @@
 			}
 		}
 
+		public function editMember() {
+			$data['thisPage'] = 'mControl';
+			$data['user_name'] = $this->session->userdata('name');
+
+			$this->load->view('header', $data);
+			$this->load->view('admin/sidenav', $data);
+			$this->load->view('admin/viewUser');
+		}
+
+		public function loginHistory() {
+			$data['thisPage'] = 'mControl';
+			$data['user_name'] = $this->session->userdata('name');
+			$data['loginHistory'] = $this->member->getLoginHistory();
+
+			$this->load->view('header', $data);
+			$this->load->view('admin/sidenav', $data);
+			$this->load->view('admin/logHistory', $data);
+		}
+
 	}
 ?>
