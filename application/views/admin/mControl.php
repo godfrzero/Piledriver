@@ -41,27 +41,12 @@
         <div class="barHeader">Edit Members<span class="minState" id="minState_5">-</span></div>
         <div class="barContents" id="bC5">
         <?= form_open() ?>
-        <!-- <table>
-            <tr>
-            <?php foreach($userList as $index => $thisUser) { ?>
-            <?php if( ($index + 1) % 2 ) { echo '</tr><tr>'; } ?>
-            <td style="text-align: left;">
-                <label><input type="checkbox" value="<?= $thisUser ?>" /> <?= $thisUser ?></label>
-            </td>
-                <?php if($index == (sizeof($userList) - 1)) { 
-                    if(($index + 1) % 2) { ?>
-                    <td style="text-align: left;"></td></tr>
-                <?php } else { ?>
-                    </tr>
-                <?php }
-                } 
-            } ?>
-            <tr>
-                <td colspan="2" class="centered">
-                    <input type="submit" value="Delete Selected Members" /> or click a member name to view details
-                </td>
-            </tr>
-        </table> -->
+        <?php foreach($userList as $index => $thisUser) { ?>
+            <button><input type="checkbox" name="removeUsers[]" value="<?= $thisUser ?>" /><br /><?= $thisUser ?> </button>
+        <?php } ?>
+        <div class="centered" style="margin-top: 20px;">
+            <input type="submit" value="Delete Selected Users" /> or click a user to view details
+        </div>
         <?= form_close() ?>
         </div>
     </div>
