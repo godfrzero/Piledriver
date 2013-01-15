@@ -45,12 +45,11 @@
 		 * 'UID' and 'Timestamp'
 		 */
 		function getLoginHistory($limit = 0) {
-			$this->db->select('UID, Timestamp');
 			$this->db->order_by('timestamp', 'desc');
 			if($limit) {
-				$history = $this->db->get('sess_control', $limit);
+				$history = $this->db->get('sess_history', $limit);
 			} else {
-				$history = $this->db->get('sess_control');
+				$history = $this->db->get('sess_history');
 			}
 
 			return $history->result_array();
@@ -77,6 +76,9 @@
 			// This way, only the most recent login stays valid
 			$this->db->delete('sess_control', array('UID' => $user));
 
+			// Insert the UID into sess_history for records
+			$this->db->insert('sess_history', array('UID' => $user));
+
 			// Insert the new SID and return the result of the query
 			return $this->db->insert('sess_control', $insertData);
 		}
@@ -94,6 +96,16 @@
 			} else {
 				return false;
 			}
+		}
+
+		/*
+		 * Function to remove a SID from the sess_control table and 
+		 * close the session on the server. Takes the users UID as an argument.
+		 * When calling, make sure the UID is taken from the server session 
+		 * using the stored SID, so as to minimize tampering.
+		 */
+		public function removeSID($UID) {
+			return $this->db->delete('sess_control', array('UID' => $UID));
 		}
 
 		/*

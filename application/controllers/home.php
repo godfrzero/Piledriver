@@ -114,6 +114,17 @@
 
 		public function logout() {
 			$this->load->library('session');
+			$this->load->model('member');
+
+			$UID = $this->session->userdata('UID');
+			$SID = $this->session->userdata('SID');
+
+			$SIDverify = $this->member->getSID($UID);
+
+			if($SIDverify && $SIDverify == $SID) {
+				$this->member->removeSID($UID);
+			}
+
 			$this->session->sess_destroy();
 			redirect('http://redatomstudios.com');
 		}

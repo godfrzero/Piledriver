@@ -1,7 +1,7 @@
 <div class="body">
     <div class="bar Two">
-    	<div class="barHeader">Add Member<span class="minState" id="minState_3">-</span></div>
-        <div class="barContents" id="bC3">
+    	<div class="barHeader">Add Member<span class="minState">-</span></div>
+        <div class="barContents">
             <?= form_open('/admin/manageMember')?>
             <div class="formBlock centered">
                 <input type="text" name="uName" id="uName" placeholder="Username" />
@@ -33,16 +33,24 @@
                 <td><?= $thisUser['Timestamp'] ?></td>
             </tr>
             <?php } ?>
+            <tr>
+                <th colspan="2" class="centered">
+                    <button type="button" onClick="window.location = '<?= base_url() ?>admin/loginHistory'">View All</button>
+                </th>
+            </tr>
         </table>
         </div>
     </div>
 
     <div class="bar One">
-        <div class="barHeader">Edit Members<span class="minState" id="minState_5">-</span></div>
-        <div class="barContents" id="bC5">
-        <?= form_open() ?>
+        <div class="barHeader">Edit Members<span class="minState">-</span></div>
+        <div class="barContents">
+        <?= form_open('admin/editMembers') ?>
         <?php foreach($userList as $index => $thisUser) { ?>
-            <button type="button" onclick="javascript:window.location = '<?= base_url() ?>admin/editMember/<?= $thisUser ?>'"><input type="checkbox" name="removeUsers[]" value="<?= $thisUser ?>" /><br /><?= $thisUser ?> </button>
+            <button type="button" onclick="window.location = '<?= base_url() ?>admin/editMember/<?= $thisUser ?>'">
+                <input type="checkbox" name="removeUsers[]" value="<?= $thisUser ?>" />
+                <?= $thisUser ?> 
+            </button>
         <?php } ?>
         <div class="centered" style="margin-top: 20px;">
             <input type="submit" value="Delete Selected Users" /> or click a user to view details

@@ -16,8 +16,8 @@
 			$sess_SID = $this->session->userdata('SID');
 
 			/*
-			 * Let's check if their rank is Admin as well,
-			 * hypothetically, if we just check the cookies,
+			 * Let's check if their rank is Admin as well.
+			 * Hypothetically, if we just check the cookies,
 			 * it's possible to modify the cookie and access an
 			 * admin page even if the member is just...a member.
 			 * So let's get their rank here, and check it along
