@@ -42,7 +42,7 @@
         <div class="barContents" id="bC5">
         <?= form_open() ?>
         <?php foreach($userList as $index => $thisUser) { ?>
-            <button><input type="checkbox" name="removeUsers[]" value="<?= $thisUser ?>" /><br /><?= $thisUser ?> </button>
+            <button type="button" onclick="javascript:window.location = '<?= base_url() ?>admin/editMember/<?= $thisUser ?>'"><input type="checkbox" name="removeUsers[]" value="<?= $thisUser ?>" /><br /><?= $thisUser ?> </button>
         <?php } ?>
         <div class="centered" style="margin-top: 20px;">
             <input type="submit" value="Delete Selected Users" /> or click a user to view details
