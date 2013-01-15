@@ -32,10 +32,11 @@ $(document).ready(function () {
 	});
 
 	$(".barHeader").click(function() {
-		// jQuerys slideToggle hides the element after animation, which messes up our layout
-		// SO, we're using a custom function ^_^
-		// It needs an array, but w.e. it works. :P
-		//animateBars(this.parentNode.children[1].id, this.children[0].id);
+		/*
+		 * jQuerys slideToggle hides the element after animation, which messes up our layout
+		 * SO, we're using a custom function ^_^
+		 * It needs an array, but w.e. it works. :P
+		 */
 		animateBars(this);
 	});
 

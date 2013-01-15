@@ -5,7 +5,7 @@ header('Content-Type:text/html');
 $JS_Dir = './resources/js/';		// Directory where the JS files are placed
 $CSS_Dir = './resources/css/';	// Directory where the CSS files are placed
 $JSToInclude = array('jquery.js', 'datepicker.js', 'h2o.animate.js', 'h2o.js');
-$CSSToInclude = array('reset.css', 'datepicker.css', 'main.css');
+$CSSToInclude = array('reset.css', 'datepicker.css', 'general.css', 'bar_grid.css', 'progress.css', 'bar_forms.css');
 
 
 echo '<style>

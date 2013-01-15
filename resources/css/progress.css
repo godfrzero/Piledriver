@@ -1,0 +1,34 @@
+@charset 'utf-8';
+/* CSS Document */
+
+/* Progress Bar Styles */
+
+	.Progress {
+	    background: rgba(255, 255, 255, 0.4);
+	    box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.7), inset -1px -1px 1px rgba(0, 0, 0, 0.5);
+	    border-radius: 5px;
+	    height: 16px;
+	    padding: 2px;
+	    width: 100%;
+		position: relative;
+		top: 5px;
+	}
+
+	.Progress .Fill {
+	    background: rgba(0, 0, 0, 0.2);
+	    height: 16px;
+	    position: relative;
+	    float: right;
+	    box-shadow: inset 0 0 10px black;
+	    border-radius: 4px;
+	}
+
+	.Progress .Label {
+		text-align: right;
+		padding-right: 1%;
+		line-height: 16px;
+		position: relative;
+		height: 16px;
+		float: left;
+		overflow: hidden;	
+	}

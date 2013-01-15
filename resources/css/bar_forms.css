@@ -1,0 +1,61 @@
+@charset 'utf-8';
+/* CSS Document */
+
+/* Styles controlling form elements inside BARs */
+
+	.formBlock {
+		width: 45%;
+		padding: 1em 2.5%;
+		float: left;
+	}
+
+	.formBlock input, .formBlock select {
+		width: 94%;
+		padding: 0 3%;
+		line-height: 2.5em;
+		height: 2.5em;
+		box-sizing: border-box;
+	}
+	
+	.barContents form {
+	    padding: 0;
+	}
+
+	.barContents form:after {
+		content:'.';
+		clear: both;
+		visibility: hidden;
+		height: 0;
+	}
+
+	input[type="text"], input[type="password"], textarea  {
+	    border: solid thin rgba(0, 0, 0, 0.2);
+	    border-radius: 5px;
+	    margin: 10px 0;
+	    padding: 0 2.5%;
+	    line-height: 25px;
+	    background: rgba(0, 0, 0, 0.1);
+	    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), inset -1px -1px 2px rgba(255, 255, 255, 0.5);
+	    color: #FFF;
+	    outline: none;
+	    line-height: 2.5em;
+			height: 2.5em;
+	}
+
+	input[type="text"]:focus, input[type="password"]:focus, textarea:focus  {
+		background: rgba(0, 0, 0, 0.05);
+	}
+
+	select {
+		background: none;
+		border: none;
+	}
+
+	.barContents form textarea  {
+	    height: 100px;
+		resize: none;
+	}
+
+	.centered {
+		text-align: center;
+	}
