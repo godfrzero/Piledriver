@@ -116,7 +116,7 @@
 			$this->load->library('session');
 			$this->load->model('member');
 
-			$UID = $this->session->userdata('UID');
+			$UID = $this->session->userdata('user');
 			$SID = $this->session->userdata('SID');
 
 			$SIDverify = $this->member->getSID($UID);
