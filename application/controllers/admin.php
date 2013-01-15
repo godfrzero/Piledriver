@@ -58,6 +58,8 @@
 			$data['user_name'] = $this->session->userdata('name');
 			$data['thisPage'] = 'mControl';
 
+			$data['loginHistory'] = $this->member->getLoginHistory(5);
+
 			$data['userList'] = $this->member->getAllUsers();
 			foreach($data['userList'] as $index => $thisUser) {
 				$data['userList'][$index] = $thisUser['username'];

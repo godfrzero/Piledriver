@@ -68,7 +68,6 @@
 	}
 
 	.Two .barContents table td, .Two .barContents table th {
-		text-align: right;
 		padding: 10px 5px;
 		line-height: 1.3em;
 		cursor: pointer;

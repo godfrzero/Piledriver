@@ -24,30 +24,15 @@
     </div>
 
     <div class="bar Two">
-        <div class="barHeader">Edit Members<span class="minState" id="minState_5">-</span></div>
-        <div class="barContents" id="bC5">
-        <?= form_open() ?>
+        <div class="barHeader">Latest Logins<span class="minState">-</span></div>
+        <div class="barContents">
         <table>
+            <?php foreach($loginHistory as $thisUser) { ?>
             <tr>
-            <?php foreach($userList as $index => $thisUser) { ?>
-            <?php if( ($index + 1) % 2 ) { echo '</tr><tr>'; } ?>
-            <td style="text-align: left;">
-                <label><input type="checkbox" value="<?= $thisUser ?>" /> <?= $thisUser ?></label>
-            </td>
-                <?php if($index == (sizeof($userList) - 1)) { 
-                    if(($index + 1) % 2) { ?>
-                    <td style="text-align: left;"></td></tr>
-                <?php } else { ?>
-                    </tr>
-                <?php }
-                } 
-            } ?>
-            <tr>
-                <td colspan="2" class="centered">
-                    <input type="submit" value="Delete Selected Members" />
-                </td>
+                <td><?= $thisUser['UID'] ?></td>
+                <td><?= $thisUser['Timestamp'] ?></td>
             </tr>
-            <?= form_close() ?>
+            <?php } ?>
         </table>
         </div>
     </div>
@@ -56,7 +41,7 @@
         <div class="barHeader">Edit Members<span class="minState" id="minState_5">-</span></div>
         <div class="barContents" id="bC5">
         <?= form_open() ?>
-        <table>
+        <!-- <table>
             <tr>
             <?php foreach($userList as $index => $thisUser) { ?>
             <?php if( ($index + 1) % 2 ) { echo '</tr><tr>'; } ?>
@@ -76,8 +61,8 @@
                     <input type="submit" value="Delete Selected Members" /> or click a member name to view details
                 </td>
             </tr>
-            <?= form_close() ?>
-        </table>
+        </table> -->
+        <?= form_close() ?>
         </div>
     </div>
 </div>

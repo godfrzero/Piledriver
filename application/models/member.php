@@ -35,6 +35,28 @@
 		}
 
 		/*
+		 * Function to get recently logged users. Function takes
+		 * an integer as an optional argument. If no argument is 
+		 * passed, it gets the entire login list. If an argument
+		 * is passed, it retrieves the latest (n) logins, where 
+		 * n is the argument passed.
+		 *
+		 * Data is returned as an associative array with fields
+		 * 'UID' and 'Timestamp'
+		 */
+		function getLoginHistory($limit = 0) {
+			$this->db->select('UID, Timestamp');
+			$this->db->order_by('timestamp', 'desc');
+			if($limit) {
+				$history = $this->db->get('sess_control', $limit);
+			} else {
+				$history = $this->db->get('sess_control');
+			}
+
+			return $history->result_array();
+		}
+
+		/*
 		 * Function to manage the SESSION ID (SID)
 		 * Inserts the pertinent SID for the $user, 
 		 * after checking to see if that user already has

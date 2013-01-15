@@ -19,6 +19,7 @@
 	
 	.barContents form {
 	    padding: 0;
+	    height: 0;
 	}
 
 	.barContents form:after {
